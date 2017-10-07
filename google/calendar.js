@@ -1,5 +1,3 @@
-console.log("hey");
-
 function getInformation(information)
 {
     var elements = information.split(" ");
@@ -72,11 +70,9 @@ function makeEvent(information)
         'timeZone': 'America/Los_Angeles'
       },
       'recurrence': [
-        'RRULE:FREQ=DAILY;COUNT=2'
+        'RRULE:FREQ=DAILY;COUNT=1'
       ],
       'attendees': [
-        {'email': 'lpage@example.com'},
-        {'email': 'sbrin@example.com'}
       ],
       'reminders': {
         'useDefault': false,
@@ -90,6 +86,10 @@ function makeEvent(information)
     var request = gapi.client.calendar.events.insert({
       'calendarId': 'primary',
       'resource': event
+    });
+
+    request.execute(function(event) {
+    alert('Event created: ' + event.htmlLink);
     });
 
 }
