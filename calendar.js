@@ -38,7 +38,7 @@ function getInformation(information)
         else
         {
             hour = parseInt(elements[2].substring(0, 2)) + 12;
-            timePortion1 = hour + elements[2].substring(2, 5);
+            timePortion1 = hour + elements[2].substring(2, 5) + ":00-07:00";
         }
 
         if (elements[3].substring(5).toLowerCase() === "am")
@@ -48,7 +48,7 @@ function getInformation(information)
         else
         {
             hour = parseInt(elements[3].substring(0, 2)) + 12;
-            timePortion2 = hour + elements[3].substring(2, 5);
+            timePortion2 = hour + elements[3].substring(2, 5) + ":00-07:00";
         }
     }
     console.log([elements[0], datePortion + "T" + timePortion1, datePortion + "T" + timePortion2]);
