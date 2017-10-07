@@ -21,7 +21,7 @@ function getInformation(information)
     console.log(militaryTime);
 
     timePortion1 = "";
-    timePortion2 = "";
+    timePortion2 = " ";
     if (militaryTime)
     {
         timePortion1 = elements[2] + ":00-07:00";
