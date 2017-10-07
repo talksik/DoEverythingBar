@@ -1,5 +1,6 @@
 
 var enterBtn = document.getElementById("enter");
+var authorizeButton = document.getElementById('authorize-button');
 enterBtn.addEventListener("click", captureInput);
 
 function captureInput() {
@@ -14,18 +15,16 @@ function captureInput() {
   command = input.substring(0, untilSpace);
   console.log(command);
   if (command in dict) {
+    authorizeButton.click();
     dict[command](input.substring(untilSpace+1));
-    google_auth();
   }
   else {
     console.log("not a valid command");
   }
 }
 
-
-function google_auth() {
   // Client ID and API key from the Developer Console
-  var CLIENT_ID = '282164278400-fibsdnpmvl7hnhu0v837mql3f5u0b8lu.apps.googleusercontent.com';
+  var CLIENT_ID = '951578952608-igq1knaukc28hl3a7slj66l5lerijgue.apps.googleusercontent.com';
 
   // Array of API discovery doc URLs for APIs used by the quickstart
   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -35,7 +34,6 @@ function google_auth() {
   var SCOPES = "https://www.googleapis.com/auth/calendar";
 
   var authorizeButton = document.getElementById('authorize-button');
-  var signoutButton = document.getElementById('signout-button');
 
   /**
    *  On load, called to load the auth2 library and API client library.
@@ -60,7 +58,6 @@ function google_auth() {
       // Handle the initial sign-in state.
       updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       authorizeButton.onclick = handleAuthClick;
-      signoutButton.onclick = handleSignoutClick;
     });
   }
 
@@ -69,14 +66,7 @@ function google_auth() {
    *  appropriately. After a sign-in, the API is called.
    */
   function updateSigninStatus(isSignedIn) {
-    if (isSignedIn) {
-      authorizeButton.style.display = 'none';
-      signoutButton.style.display = 'block';
-      listUpcomingEvents();
-    } else {
-      authorizeButton.style.display = 'block';
-      signoutButton.style.display = 'none';
-    }
+    console.log('hey');
   }
 
   /**
@@ -84,13 +74,6 @@ function google_auth() {
    */
   function handleAuthClick(event) {
     gapi.auth2.getAuthInstance().signIn();
-  }
-
-  /**
-   *  Sign out the user upon button click.
-   */
-  function handleSignoutClick(event) {
-    gapi.auth2.getAuthInstance().signOut();
   }
 
   /**
@@ -136,4 +119,3 @@ function google_auth() {
       }
     });
   }
-}
