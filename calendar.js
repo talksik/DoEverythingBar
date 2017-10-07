@@ -13,7 +13,7 @@ function getInformation(information)
     militaryTime = true;
     for (var i = 0; i < elements.length; i++)
     {
-        if (elements[i].toLowerCase() === "pm" || elements[i].toLowerCase() === "am")
+        if (elements[i].toLowerCase().substring(5) === "pm" || elements[i].toLowerCase().substring(5) === "am")
         {
             militaryTime = false;
         }
