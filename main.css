@@ -1,4 +1,28 @@
-.center {
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+div.main-bg {
+  background-image: url("images/main-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  /*border: 2px solid red;*/
+}
+
+.search-col {
   margin: 0;
     position: absolute;
     top: 50%;
@@ -6,12 +30,7 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
-div.main-bg {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
+
 .stylish-input-group .input-group-addon{
     background: white !important;
 }
@@ -23,9 +42,4 @@ div.main-bg {
 .stylish-input-group button{
     border:0;
     background:transparent;
-}
-
-#search-cont {
-  height:200px;
-  width:600px;
 }
