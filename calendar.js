@@ -1,4 +1,4 @@
-//console.log("hey");
+console.log("hey");
 
 function getInformation(information)
 {
@@ -51,7 +51,7 @@ function getInformation(information)
             timePortion2 = hour + elements[3].substring(2, 5);
         }
     }
-    //console.log([elements[0], datePortion + "T" + timePortion1, datePortion + "T" + timePortion2]);
+    console.log([elements[0], datePortion + "T" + timePortion1, datePortion + "T" + timePortion2]);
     return [elements[0], datePortion + "T" + timePortion1, datePortion + "T" + timePortion2];
 }
 
@@ -92,7 +92,4 @@ function makeEvent(information)
       'resource': event
     });
 
-    request.execute(function(event) {
-      appendPre('Event created: ' + event.htmlLink);
-    });
 }

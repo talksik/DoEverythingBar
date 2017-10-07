@@ -1,6 +1,7 @@
 
 var enterBtn = document.getElementById("enter");
 var authorizeButton = document.getElementById('authorize-button');
+var signoutButton = document.getElementById('signout-button');
 enterBtn.addEventListener("click", captureInput);
 
 function captureInput() {
@@ -17,6 +18,7 @@ function captureInput() {
   if (command in dict) {
     authorizeButton.click();
     dict[command](input.substring(untilSpace+1));
+    signoutButton.click();
   }
   else {
     console.log("not a valid command");
@@ -24,7 +26,7 @@ function captureInput() {
 }
 
   // Client ID and API key from the Developer Console
-  var CLIENT_ID = '951578952608-igq1knaukc28hl3a7slj66l5lerijgue.apps.googleusercontent.com';
+  var CLIENT_ID = '951578952608-pnrc56tttl9dd2u67keg43hj5rhn6eid.apps.googleusercontent.com';
 
   // Array of API discovery doc URLs for APIs used by the quickstart
   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -34,7 +36,7 @@ function captureInput() {
   var SCOPES = "https://www.googleapis.com/auth/calendar";
 
   var authorizeButton = document.getElementById('authorize-button');
-
+  var signoutButton = document.getElementById('signout-button');
   /**
    *  On load, called to load the auth2 library and API client library.
    */
@@ -58,6 +60,7 @@ function captureInput() {
       // Handle the initial sign-in state.
       updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       authorizeButton.onclick = handleAuthClick;
+      signoutButton.onclick = handleSignoutClick;
     });
   }
 
@@ -66,7 +69,6 @@ function captureInput() {
    *  appropriately. After a sign-in, the API is called.
    */
   function updateSigninStatus(isSignedIn) {
-    console.log('hey');
   }
 
   /**
@@ -76,46 +78,6 @@ function captureInput() {
     gapi.auth2.getAuthInstance().signIn();
   }
 
-  /**
-   * Append a pre element to the body containing the given message
-   * as its text node. Used to display the results of the API call.
-   *
-   * @param {string} message Text to be placed in pre element.
-   */
-  function appendPre(message) {
-    var pre = document.getElementById('content');
-    var textContent = document.createTextNode(message + '\n');
-    pre.appendChild(textContent);
-  }
-
-  /**
-   * Print the summary and start datetime/date of the next ten events in
-   * the authorized user's calendar. If no events are found an
-   * appropriate message is printed.
-   */
-  function listUpcomingEvents() {
-    gapi.client.calendar.events.list({
-      'calendarId': 'primary',
-      'timeMin': (new Date()).toISOString(),
-      'showDeleted': false,
-      'singleEvents': true,
-      'maxResults': 10,
-      'orderBy': 'startTime'
-    }).then(function(response) {
-      var events = response.result.items;
-      appendPre('Upcoming events:');
-
-      if (events.length > 0) {
-        for (i = 0; i < events.length; i++) {
-          var event = events[i];
-          var when = event.start.dateTime;
-          if (!when) {
-            when = event.start.date;
-          }
-          appendPre(event.summary + ' (' + when + ')')
-        }
-      } else {
-        appendPre('No upcoming events found.');
-      }
-    });
+  function handleSignoutClick(event) {
+    gapi.auth2.getAuthInstance().signOut();
   }
