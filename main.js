@@ -5,14 +5,14 @@ enterBtn.addEventListener("click", captureInput);
 function captureInput() {
 
   var dict = {
-    "gcal": createEvent,
-    "googlecalendar": createEvent,
+    "gcal": makeEvent,
+    "googlecalendar": makeEvent,
   };
 
   var input = String(document.getElementById("input").value);
   untilSpace = input.indexOf(' ');
   command = input.substring(0, untilSpace);
-  
+  console.log(command);
   if (command in dict) {
     dict[command](input.substring(untilSpace+1));
   }
