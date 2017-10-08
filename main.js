@@ -2,14 +2,25 @@ var enterBtn = document.getElementById("enter");
 var authorizeButton = document.getElementById('authorize-button');
 var signoutButton = document.getElementById('signout-button');
 
+var guideIcon = document.getElementById('guide-icon');
+  guideIcon.addEventListener("click", function() {
+    $('.guide-popup').slideDown(500);
+    $('.cancelPop').fadeIn();
+    $('#cancelParent').click(function() {
+      console.log('hi');
+      $(this).fadeOut();
+      $('.cancelPop').fadeOut();
+      $('.guide-popup').fadeOut();
+    });
+  });
 var runCommandBtn = document.getElementById('create-event');
-enterBtn.addEventListener("click", captureInput);
-window.addEventListener("keypress", function(e) {
-  var key = e.which || e.keycode;
-  if (key == 13) {
-    captureInput();
-  }
-});
+  enterBtn.addEventListener("click", captureInput);
+  window.addEventListener("keypress", function(e) {
+    var key = e.which || e.keycode;
+    if (key == 13) {
+      captureInput();
+    }
+  });
 var actualCommand = '';
 var command = '';
 
@@ -18,7 +29,7 @@ var dict = {
   "googlecalendar": makeEvent,
   "mapsd": directionsURL,
   "directions": directionsURL,
-  "skype": skypeCall
+  "skype": 'buffer'
 };
 
 function error() {
@@ -42,7 +53,11 @@ function captureInput() {
         console.log('actualCommand is empty!!');
         error();
       }
-
+      else if (command == "skype") {
+        console.log('launched skype app');
+        //skypeCall(actualCommand);
+        document.getElementById('SkypeButton_Call_justinkimchi77_1').click();
+      }
       else if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
         console.log('already signed in');
         runCommandBtn.addEventListener("click", runCommand);
@@ -51,6 +66,9 @@ function captureInput() {
             dict[command](actualCommand);
           }
         runCommandBtn.click();
+        if (command == 'gcal') {
+          $('.updateCont').slideDown().fadeIn().delay(5000).fadeOut();
+        }
         runCommandBtn.removeEventListener("click", runCommand);
       }
 

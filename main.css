@@ -9,8 +9,18 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Playfair Display', serif;
 }
-
+.row {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
 div.main-bg {
   background-image: url("images/main-bg.jpg");
   background-repeat: no-repeat;
@@ -19,18 +29,25 @@ div.main-bg {
   padding: 0;
   height: 100%;
   width: 100%;
-  /*border: 2px solid red;*/
+}
+.guide-icon {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  height: 20px;
+  width: 20px;
+}
+.search-col {
+  width:500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
-.search-col {
-  margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-  font-size: 30px;
-}
 
 .stylish-input-group .input-group-addon{
     background: white !important;
@@ -54,4 +71,72 @@ div.main-bg {
   z-index: 10;
   height: 15px;
   width: 15px;
+}
+
+.guide-popup {
+  position: fixed;
+  height: 280px;
+  width: 500px;
+  background-color:#dce2ed;
+  border-radius: 4px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-family: 'Playfair Display', serif;
+  border: .5px solid black;
+  display: none;
+}
+div.cols {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 260px;
+  top: 0;
+}
+p.text {
+  margin-top: 20px;
+  font-size: 15px;
+}
+#cancelParent {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  z-index: 10;
+}
+.cancelPop {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+}
+.updateCont {
+  position: fixed;
+  font-weight: bold;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 120px;
+  color: green;
+  display: none;
+}
+
+.check {
+  margin-right: 5px;
+  height:15px;
+  width: 15px;
+  right:0;
+  top: 0;
 }

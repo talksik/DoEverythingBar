@@ -3,6 +3,8 @@
   <head>
     <title>DoEverythingBar</title>
 
+    <link rel="icon" href="images/head.png">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -10,26 +12,27 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 
   </head>
-  <body>
+  <body spellcheck="false">
 
     <button id="authorize-button" style="display: none;">Sign-In</button>
     <button id="signout-button" style="display: none;">Sign-Out</button>
     <button id="create-event" style="display: none;">Create-Event</button>
-    <button id="SkypeButton_Call_justinkimchi77_1" style="display:none;">
-      
+    <div id="SkypeButton_Call_justinkimchi77_1" style="display:none;">
       <script type="text/javascript">
+        //function skypeCall(userName) {
             Skype.ui({
-            "name": "call",
-            "element": "SkypeButton_Call_justinkimchi77_1",
-            "participants": [""]
+              "name": "call",
+              "element": "SkypeButton_Call_justinkimchi77_1",
+              "participants": ['justinkimchi77']
             });
+        //  }
       </script>
-    </button>
+    </div>
 
     <div class="container main-bg" id="content">
       <div class="row">
-        <div class="col-xs-8 search-col">
-          <div id="search-cont">
+        <div class="col-xs-12 search-col">
+          <div id="search-cont" class="search-cont">
                 <div class="input-group stylish-input-group">
                     <input type="text" id="input" class="form-control"  placeholder="Search" >
                     <span class="input-group-addon">
@@ -42,6 +45,7 @@
             </div>
           </div>
       </div>
+      <image src="images/guide-icon.png" class="guide-icon" id="guide-icon">
 
       <iframe
         height="100%"
@@ -51,6 +55,21 @@
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZCgZY7ZlSMk1DW0NEEoHZ9qwdSL4AR1k&q=Eiffel+Tower,Paris+France" allowfullscreen>
       </iframe>
     </div>
+
+    <div class="guide-popup container">
+      <div id="cancelParent"><image class="cancelPop" src="images/error.png"></div>
+      <div class="row">
+        <div class="col-xs-4 cols">
+          <p class="text">gcal | googlecalendar<br><hr><br>mapsd | directions<br><hr><br>skype</p>
+        </div>
+        <div class="col-xs-8 cols" style="border-left: 1px solid white;">
+          <p class="text"><br><i>[mm/dd/yy] [00:00] [00:00]</i><br><hr><br><i>[address]</i> to <i>[address]</i> <i>[method of travel]</i><br><hr><br><i>[username]</i></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="updateCont">
+    <image class="check" src="images/check.png">Added Event!</div>
 
     <script type="text/javascript" src="google/maps.js"></script>
     <script type="text/javascript" src="google/calendar.js"></script>
