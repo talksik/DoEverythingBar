@@ -17,19 +17,17 @@
     <button id="authorize-button" style="display: none;">Sign-In</button>
     <button id="signout-button" style="display: none;">Sign-Out</button>
     <button id="create-event" style="display: none;">Create-Event</button>
-    <div id="SkypeButton_Call_justinkimchi77_1" style="display:none;">
-      <script type="text/javascript">
-        //function skypeCall(userName) {
-            Skype.ui({
-              "name": "call",
-              "element": "SkypeButton_Call_justinkimchi77_1",
-              "participants": ['justinkimchi77']
-            });
-        //  }
-      </script>
-    </div>
 
     <div class="container main-bg" id="content">
+      <div id="SkypeButton_Call_justinkimchi77_1">
+        <script type="text/javascript">
+              Skype.ui({
+                "name": "call",
+                "element": "SkypeButton_Call_justinkimchi77_1",
+                "participants": ['live:emailtoosajal']
+              });
+        </script>
+      </div>
       <div class="row">
         <div class="col-xs-12 search-col">
           <div id="search-cont" class="search-cont">
@@ -63,7 +61,7 @@
           <p class="text">gcal | googlecalendar<br><hr><br>mapsd | directions<br><hr><br>skype</p>
         </div>
         <div class="col-xs-8 cols" style="border-left: 1px solid white;">
-          <p class="text"><br><i>[mm/dd/yy] [00:00] [00:00]</i><br><hr><br><i>[address]</i> to <i>[address]</i> <i>[method of travel]</i><br><hr><br><i>[username]</i></p>
+          <p class="text"><br><i>[mm/dd/yy] [00:00] [00:00]</i><br><hr><br><i>[address]</i> to <i>[address]</i><br><hr><br><i>[username]</i></p>
         </div>
       </div>
     </div>

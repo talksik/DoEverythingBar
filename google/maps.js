@@ -8,10 +8,10 @@ function directionsURL(inCommand) {
   var link = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyCZCgZY7ZlSMk1DW0NEEoHZ9qwdSL4AR1k&origin="+origin+"&destination="+dest
   mapsFrame.src = link;
   $('#map').delay(3000).fadeIn();
-  $('#search-cont').delay(2700).animate({'margin-top' : '-=200px'});
+  $('#search-cont').delay(2700).animate({'margin-top' : '-200px'});
   $('#input').mousedown(function() {
     $('#map').fadeOut(500);
-    $('#search-cont').animate({'margin-top' : '+=200px'});
+    $('#search-cont').animate({'margin-top' : '5%'});
     $('#input').unbind();
   });
 }

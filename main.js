@@ -56,7 +56,7 @@ function captureInput() {
       else if (command == "skype") {
         console.log('launched skype app');
         //skypeCall(actualCommand);
-        document.getElementById('SkypeButton_Call_justinkimchi77_1').click();
+        $('#SkypeButton_Call_justinkimchi77_1').fadeIn();
       }
       else if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
         console.log('already signed in');

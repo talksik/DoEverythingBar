@@ -47,6 +47,9 @@ div.main-bg {
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
+#search-cont {
+  position: fixed;
+}
 
 
 .stylish-input-group .input-group-addon{
@@ -139,4 +142,13 @@ p.text {
   width: 15px;
   right:0;
   top: 0;
+}
+#SkypeButton_Call_justinkimchi77_1 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  display: none;
 }
