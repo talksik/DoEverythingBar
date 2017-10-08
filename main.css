@@ -29,6 +29,7 @@ div.main-bg {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+  font-size: 30px;
 }
 
 .stylish-input-group .input-group-addon{
@@ -42,4 +43,15 @@ div.main-bg {
 .stylish-input-group button{
     border:0;
     background:transparent;
+}
+
+#fire {
+  display: none;
+  position: absolute;
+  top: 16px;
+  right: 30px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  height: 15px;
+  width: 15px;
 }

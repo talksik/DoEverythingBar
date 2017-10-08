@@ -89,7 +89,7 @@ function makeEvent(information)
     });
 
     request.execute(function(event) {
-    alert('Event created: ' + event.htmlLink);
+    console.log('Event created!');
     });
 
 }

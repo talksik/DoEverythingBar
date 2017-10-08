@@ -4,17 +4,30 @@ var signoutButton = document.getElementById('signout-button');
 
 var runCommandBtn = document.getElementById('create-event');
 enterBtn.addEventListener("click", captureInput);
+window.addEventListener("keypress", function(e) {
+  var key = e.which || e.keycode;
+  if (key == 13) {
+    captureInput();
+  }
+});
 var actualCommand = '';
 var command = '';
 
-function captureInput() {
-  var dict = {
-    "gcal": makeEvent,
-    "googlecalendar": makeEvent,
-    "mapsd": directionsURL,
-    "directions": directionsURL
-  };
+var dict = {
+  "gcal": makeEvent,
+  "googlecalendar": makeEvent,
+  "mapsd": directionsURL,
+  "directions": directionsURL
+};
 
+function error() {
+  $('#fire').slideDown();
+  $('#input').mousedown(function() {
+    $('#fire').slideUp();
+  });
+}
+
+function captureInput() {
   var input = String(document.getElementById("input").value);
   var untilSpace = input.indexOf(' ');
   command = input.substring(0, untilSpace);
@@ -23,21 +36,30 @@ function captureInput() {
   if (command in dict) {
     console.log('isAValidCommmand');
     actualCommand = input.substring(untilSpace+1);
-    runCommandBtn.addEventListener("click", function () {
-          console.log('successfully ran command');
-          dict[command](actualCommand);
-    });
 
-    if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
-      console.log('already signed in');
-      runCommandBtn.click();
-    }
-    else {
-      authorizeButton.click();
-      setTimeout(alert("Run Command again!"), 1000);
-    }
+      if (actualCommand == '') {
+        console.log('actualCommand is empty!!');
+        error();
+      }
+
+      else if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
+        console.log('already signed in');
+        runCommandBtn.addEventListener("click", runCommand);
+        function runCommand() {
+            console.log('successfully ran command');
+            dict[command](actualCommand);
+          }
+        runCommandBtn.click();
+        runCommandBtn.removeEventListener("click", runCommand);
+      }
+
+      else {
+        authorizeButton.click();
+        setTimeout(console.log("Run Command again!"), 1000);
+      }
   }
   else {
-    alert.log("Not a valid command");
+    console.log("Not a valid command");
+    error();
   }
 }
