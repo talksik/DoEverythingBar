@@ -17,7 +17,8 @@ var dict = {
   "gcal": makeEvent,
   "googlecalendar": makeEvent,
   "mapsd": directionsURL,
-  "directions": directionsURL
+  "directions": directionsURL,
+  "skype": skypeCall
 };
 
 function error() {
