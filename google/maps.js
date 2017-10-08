@@ -8,9 +8,5 @@ function directionsURL(inCommand) {
   var link = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyCZCgZY7ZlSMk1DW0NEEoHZ9qwdSL4AR1k&origin="+origin+"&destination="+dest
   mapsFrame.src = link;
   mapsFrame.style.display = "block";
+  var d = '';
 }
-
-$(function() {
-  $('#search-cont').css({"-webkit-transform":"translate(100px,100px)"});​
-
-});
